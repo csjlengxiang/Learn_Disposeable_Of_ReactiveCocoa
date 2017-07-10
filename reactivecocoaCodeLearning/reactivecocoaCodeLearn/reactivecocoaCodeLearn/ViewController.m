@@ -21,7 +21,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self testDispose];
+    [self testObserveSelector];
+    //[self testDispose];
+}
+
+//- (void)viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:animated];
+//}
+
+- (void)testObserveSelector {
+    
+    [[self rac_signalForSelector:@selector(viewWillAppear:)] subscribeNext:^(id x) {
+    
+        NSLog(@"%@", x);
+    }];
+    
 }
 
 - (void)testDispose {

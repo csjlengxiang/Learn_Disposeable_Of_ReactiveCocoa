@@ -301,8 +301,16 @@ static Class RACSwizzleClass(NSObject *self) {
 		RACSwizzleForwardInvocation(subclass);
 		RACSwizzleRespondsToSelector(subclass);
 
+        // 把 Class 中的 class 方法是返回本身，于是交换方法就要返回本身
+        // [obj class] -> statedClass
 		RACSwizzleGetClass(subclass, statedClass);
-		RACSwizzleGetClass(object_getClass(subclass), statedClass);
+        
+        // 当 object_getClass 的参数为 Class 时候， 获得是meta-class
+        //                           实例              class
+        // object_getClass(obj) -> subclass
+        // [object_getClass(obj) class] -> statedClass
+
+        RACSwizzleGetClass(object_getClass(subclass), statedClass);
 
 		RACSwizzleMethodSignatureForSelector(subclass);
 

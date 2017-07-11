@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ReactiveCocoa.h"
+#import <objc/runtime.h>
 
 @interface ViewController ()
 
@@ -23,6 +24,17 @@
     
     [self testObserveSelector];
     //[self testDispose];
+    [self testGETclass];
+}
+
+- (void)testGETclass {
+    NSLog(@"vc class] %@", [self class]);
+    NSLog(@"vc class %@",     object_getClass(self));
+    NSLog(@"vc class class] %@",     [object_getClass(self) class]);
+    NSLog(@"vc meta class %@",object_getClass(object_getClass(self)));
+    NSLog(@"vc meta class class] %@",[object_getClass(object_getClass(self)) class]);
+//    NSLog(@"vc meta class class] %p",[object_getClass(object_getClass(object_getClass(object_getClass(self)))) class]);
+
 }
 
 //- (void)viewWillAppear:(BOOL)animated {

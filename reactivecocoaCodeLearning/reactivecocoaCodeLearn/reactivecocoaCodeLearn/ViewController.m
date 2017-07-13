@@ -139,9 +139,9 @@ static NSArray * ClassMethodNames(Class c)
         }];
     }];
     
-    [[sig subscribeNext:^(id x) {
+    [sig subscribeNext:^(id x) {
         NSLog(@"sig will end");
-    }] dispose];
+    }];
     
     
     

@@ -163,17 +163,17 @@
 
 				@autoreleasepool {
 					if (signal != nil) addSignal(signal);
-					if (signal == nil || stop) {
-						[selfDisposable dispose];
+					if (signal == nil || stop) {                  // 源信号结束，需要调用源信号的dispose，需要remove self(Sig)，需要remove dispose
+						[selfDisposable dispose];                 // 注意啊，其实源信号不一定结束了，只是 bindingBlock 要求结束的，于是要手动 dispose 源信号
 						completeSignal(self, selfDisposable);
 					}
 				}
 			} error:^(NSError *error) {
-				[compoundDisposable dispose];
+				[compoundDisposable dispose];                     // 源信号GG，所有信号都GG
 				[subscriber sendError:error];
 			} completed:^{
 				@autoreleasepool {
-					completeSignal(self, selfDisposable);
+					completeSignal(self, selfDisposable);         // 源信号结束，讲道理会源信号会自动 dispose，所以不用 [selfDisposable dispose]
 				}
 			}];
 

@@ -28,6 +28,10 @@ static const char *cleanedSignalDescription(RACSignal *signal) {
 
 @interface RACPassthroughSubscriber ()
 
+// A disposable representing the subscription. When disposed, no further events
+// should be sent to the `innerSubscriber`.
+@property (nonatomic, strong, readonly) RACCompoundDisposable *disposable;
+
 // The subscriber to which events should be forwarded.
 @property (nonatomic, strong, readonly) id<RACSubscriber> innerSubscriber;
 
@@ -38,9 +42,7 @@ static const char *cleanedSignalDescription(RACSignal *signal) {
 // normal usage.
 @property (nonatomic, unsafe_unretained, readonly) RACSignal *signal;
 
-// A disposable representing the subscription. When disposed, no further events
-// should be sent to the `innerSubscriber`.
-@property (nonatomic, strong, readonly) RACCompoundDisposable *disposable;
+
 
 @end
 

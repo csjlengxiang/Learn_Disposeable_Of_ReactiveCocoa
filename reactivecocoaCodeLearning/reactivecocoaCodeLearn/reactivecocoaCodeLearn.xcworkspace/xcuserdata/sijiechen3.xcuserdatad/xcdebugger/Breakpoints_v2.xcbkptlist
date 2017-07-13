@@ -25,38 +25,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pods/ReactiveCocoa/ReactiveCocoa/RACCompoundDisposable.m"
-            timestampString = "508938041.264114"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "-initWithDisposables:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/ReactiveCocoa/ReactiveCocoa/RACDynamicSignal.m"
-            timestampString = "508939396.356721"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "-subscribe:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Pods/ReactiveCocoa/ReactiveCocoa/RACDisposable.m"
             timestampString = "508940155.36116"
             startingColumnNumber = "9223372036854775807"
@@ -201,30 +169,30 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pods/ReactiveCocoa/ReactiveCocoa/NSObject+RACSelectorSignal.m"
-            timestampString = "521362027.235977"
+            filePath = "reactivecocoaCodeLearn/ViewController.m"
+            timestampString = "521557981.184808"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "RACForwardInvocation()"
-            landmarkType = "9">
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "-observeValueForKeyPath:ofObject:change:context:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pods/ReactiveCocoa/ReactiveCocoa/NSObject+RACSelectorSignal.m"
-            timestampString = "521362032.725764"
+            filePath = "Pods/ReactiveCocoa/ReactiveCocoa/RACDynamicSignal.m"
+            timestampString = "521613283.215635"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "RACSwizzleForwardInvocation()"
-            landmarkType = "9">
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "-subscribe:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

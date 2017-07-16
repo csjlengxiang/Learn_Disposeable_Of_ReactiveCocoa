@@ -45,11 +45,91 @@
     [super viewDidLoad];
     
 //    [self testObserveSelector];
-    [self testDispose];
+//    [self testDispose];
 //    [self testGETclass];
     
 //    [self testFASO];
 //    [self testKVO];
+    [self testSigSig];
+
+//    [self testSubscriberThread];
+}
+
+- (void)testSubscriberThread {
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
+        RACSignal * originSig = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [subscriber sendNext:@1];
+                [subscriber sendCompleted];
+            });
+            return nil;
+        }];
+        
+        [originSig subscribeNext:^(id x) {
+            NSLog(@"%@",
+                  NSThread.currentThread);
+            
+        }];
+        
+    });
+    
+    
+
+    
+    
+}
+
+- (void)testSigSig {
+    RACSignal * originSig = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        
+        NSLog(@"originSig didscribleBlock %@", @1);
+
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
+            [subscriber sendNext:@1];
+            [subscriber sendCompleted];
+        });
+        return nil;
+    }];
+    
+    RACSignal * a = [originSig map:^id(id value) {
+        NSLog(@"a didscribleBlock %@", value);
+
+        return @([value integerValue] * 2);
+    }];
+    
+    RACSignal * b = [a map:^id(id value) {
+        NSLog(@"b didscribleBlock %@", value);
+
+        return @([value integerValue] * 2);
+    }];
+    
+    RACSignal * c = [b map:^id(id value) {
+        NSLog(@"c didscribleBlock %@", value);
+
+        return @([value integerValue] * 2);
+    }];
+    
+    RACSignal * sub = [c subscribeOn:[RACScheduler mainThreadScheduler]];
+    
+    RACSignal * d = [sub map:^id(id value) {
+        NSLog(@"d didscribleBlock %@", value);
+
+        return @([value integerValue] * 2);
+    }];
+    
+    RACSignal * e = [d deliverOn:[RACScheduler mainThreadScheduler]];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
+        
+        [e subscribeNext:^(id x) {
+            NSLog(@"d subscribe %@", x);
+        }];
+        
+    });
+    
+    
 }
 
 static NSArray * ClassMethodNames(Class c)

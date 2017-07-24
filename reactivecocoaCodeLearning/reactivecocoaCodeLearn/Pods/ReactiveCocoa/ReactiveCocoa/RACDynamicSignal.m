@@ -53,4 +53,9 @@
 	return disposable;
 }
 
+- (void)dealloc {
+    
+    NSLog(@"RACDynamicSignal dealloc");
+}
+
 @end

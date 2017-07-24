@@ -37,6 +37,8 @@
 @property (strong, nonatomic) RACSignal * sig;
 @property (strong, nonatomic) RACDisposable * dispose;
 
+@property (strong, nonatomic) UIButton * btn;
+
 @end
 
 @implementation ViewController
@@ -50,9 +52,30 @@
     
 //    [self testFASO];
 //    [self testKVO];
-    [self testSigSig];
+//    [self testSigSig];
 
 //    [self testSubscriberThread];
+
+    [self testControlEvent];
+}
+
+- (void)testControlEvent {
+    
+    self.btn = [[UIButton alloc] init];
+    self.btn.frame = CGRectMake(100, 100, 200, 200);
+    self.btn.backgroundColor = [UIColor grayColor];
+    
+    [self.view addSubview:self.btn];
+    
+    
+    RACSignal * sig = [self.btn rac_signalForControlEvents:UIControlEventTouchUpInside];
+    
+    
+    [sig subscribeNext:^(id x) {
+        
+        NSLog(@"tap");
+    }];
+    
 }
 
 - (void)testSubscriberThread {

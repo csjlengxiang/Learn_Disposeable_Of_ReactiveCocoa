@@ -39,6 +39,10 @@
 
 @property (strong, nonatomic) UIButton * btn;
 
+@property (strong, nonatomic) NSString * testStr;
+@property (assign, nonatomic) int testInt;
+@property (strong, nonatomic) NSObject * testObj;
+
 @end
 
 @implementation ViewController
@@ -56,7 +60,33 @@
 
 //    [self testSubscriberThread];
 
-    [self testControlEvent];
+//    [self testControlEvent];
+    [self testObserve];
+}
+
+- (void)testObserve {
+    
+    self.testStr = @"123";
+    self.testObj = [[NSObject alloc] init];
+    self.testInt = 1;
+    
+    [RACObserve(self, testStr) subscribeNext:^(id x) {
+        NSLog(@"test str %@", x);
+    }];
+    
+    [RACObserve(self, testInt) subscribeNext:^(id x) {
+        NSLog(@"test int %@", x);
+    }];
+    
+    [RACObserve(self, testObj) subscribeNext:^(id x) {
+        NSLog(@"test obj %@", x);
+    }];
+    
+    self.testStr = @"123";
+    self.testObj = [[NSObject alloc] init];
+    self.testInt = 1;
+    
+    
 }
 
 - (void)testControlEvent {

@@ -17,6 +17,53 @@
             endingLineNumber = "34"
             landmarkName = "-rac_signalForControlEvents:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__58-[UIControl(RACSignalSupport) rac_signalForControlEvents:]_block_invoke.12"
+                  moduleName = "reactivecocoaCodeLearn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chensijie/Desktop/Learn_Disposeable_Of_ReactiveCocoa/reactivecocoaCodeLearning/reactivecocoaCodeLearn/Pods/ReactiveCocoa/ReactiveCocoa/UIControl+RACSignalSupport.m"
+                  timestampString = "522903729.19352"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_.15"
+                  moduleName = "reactivecocoaCodeLearn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chensijie/Desktop/Learn_Disposeable_Of_ReactiveCocoa/reactivecocoaCodeLearning/reactivecocoaCodeLearn/Pods/ReactiveCocoa/ReactiveCocoa/UIControl+RACSignalSupport.m"
+                  timestampString = "522903729.19549"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.16"
+                  moduleName = "reactivecocoaCodeLearn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chensijie/Desktop/Learn_Disposeable_Of_ReactiveCocoa/reactivecocoaCodeLearning/reactivecocoaCodeLearn/Pods/ReactiveCocoa/ReactiveCocoa/UIControl+RACSignalSupport.m"
+                  timestampString = "522903729.197909"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "55">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
